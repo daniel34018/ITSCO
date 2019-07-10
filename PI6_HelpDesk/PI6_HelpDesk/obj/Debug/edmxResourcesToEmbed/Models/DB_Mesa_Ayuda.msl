@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MESA_SOPORTEModelStoreContainer" CdmEntityContainer="MESA_SOPORTEEntities">
+    <EntitySetMapping Name="TBL_DEPARTAMENTO">
+      <EntityTypeMapping TypeName="MESA_SOPORTEModel.TBL_DEPARTAMENTO">
+        <MappingFragment StoreEntitySet="TBL_DEPARTAMENTO">
+          <ScalarProperty Name="DEP_ID" ColumnName="DEP_ID" />
+          <ScalarProperty Name="DEP_DESCRIPCION" ColumnName="DEP_DESCRIPCION" />
+          <ScalarProperty Name="DEP_DIRRECCION" ColumnName="DEP_DIRRECCION" />
+          <ScalarProperty Name="DEP_ADD" ColumnName="DEP_ADD" />
+          <ScalarProperty Name="DEP_STATUS" ColumnName="DEP_STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_ESTADO">
+      <EntityTypeMapping TypeName="MESA_SOPORTEModel.TBL_ESTADO">
+        <MappingFragment StoreEntitySet="TBL_ESTADO">
+          <ScalarProperty Name="EST_ID" ColumnName="EST_ID" />
+          <ScalarProperty Name="EST_DESCRIPCION" ColumnName="EST_DESCRIPCION" />
+          <ScalarProperty Name="EST_STATUS" ColumnName="EST_STATUS" />
+          <ScalarProperty Name="EST_ADD" ColumnName="EST_ADD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_INCIDENTE">
+      <EntityTypeMapping TypeName="MESA_SOPORTEModel.TBL_INCIDENTE">
+        <MappingFragment StoreEntitySet="TBL_INCIDENTE">
+          <ScalarProperty Name="INC_ID" ColumnName="INC_ID" />
+          <ScalarProperty Name="INC_FECHA" ColumnName="INC_FECHA" />
+          <ScalarProperty Name="INC_VIGENCIA" ColumnName="INC_VIGENCIA" />
+          <ScalarProperty Name="INC_NUMTICKET" ColumnName="INC_NUMTICKET" />
+          <ScalarProperty Name="INC_COMENTARIO" ColumnName="INC_COMENTARIO" />
+          <ScalarProperty Name="INC_TIPO" ColumnName="INC_TIPO" />
+          <ScalarProperty Name="INC_STATUS" ColumnName="INC_STATUS" />
+          <ScalarProperty Name="INC_PRIORIDAD" ColumnName="INC_PRIORIDAD" />
+          <ScalarProperty Name="INC_USUARIO" ColumnName="INC_USUARIO" />
+          <ScalarProperty Name="INC_ADD" ColumnName="INC_ADD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_OBSERVACION">
+      <EntityTypeMapping TypeName="MESA_SOPORTEModel.TBL_OBSERVACION">
+        <MappingFragment StoreEntitySet="TBL_OBSERVACION">
+          <ScalarProperty Name="OBS_ID" ColumnName="OBS_ID" />
+          <ScalarProperty Name="PER_ID" ColumnName="PER_ID" />
+          <ScalarProperty Name="INC_ID" ColumnName="INC_ID" />
+          <ScalarProperty Name="OBS_FECHA" ColumnName="OBS_FECHA" />
+          <ScalarProperty Name="OBS_COMENTARIO" ColumnName="OBS_COMENTARIO" />
+          <ScalarProperty Name="OBS_STATUS" ColumnName="OBS_STATUS" />
+          <ScalarProperty Name="OBS_ADD" ColumnName="OBS_ADD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_PERSONA">
+      <EntityTypeMapping TypeName="MESA_SOPORTEModel.TBL_PERSONA">
+        <MappingFragment StoreEntitySet="TBL_PERSONA">
+          <ScalarProperty Name="PER_ID" ColumnName="PER_ID" />
+          <ScalarProperty Name="DEP_ID" ColumnName="DEP_ID" />
+          <ScalarProperty Name="PER_TIPOIDENTIFICACION" ColumnName="PER_TIPOIDENTIFICACION" />
+          <ScalarProperty Name="PER_IDENTIFICACION" ColumnName="PER_IDENTIFICACION" />
+          <ScalarProperty Name="PER_APELLIDOS" ColumnName="PER_APELLIDOS" />
+          <ScalarProperty Name="PER_NOMBRES" ColumnName="PER_NOMBRES" />
+          <ScalarProperty Name="PER_DIRECCION" ColumnName="PER_DIRECCION" />
+          <ScalarProperty Name="PER_TELEFONO" ColumnName="PER_TELEFONO" />
+          <ScalarProperty Name="PER_EMAIL" ColumnName="PER_EMAIL" />
+          <ScalarProperty Name="PER_ADD" ColumnName="PER_ADD" />
+          <ScalarProperty Name="PER_STATUS" ColumnName="PER_STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_PRIORIDAD">
+      <EntityTypeMapping TypeName="MESA_SOPORTEModel.TBL_PRIORIDAD">
+        <MappingFragment StoreEntitySet="TBL_PRIORIDAD">
+          <ScalarProperty Name="PRI_ID" ColumnName="PRI_ID" />
+          <ScalarProperty Name="PRI_NOMBRE" ColumnName="PRI_NOMBRE" />
+          <ScalarProperty Name="PRI_STATUS" ColumnName="PRI_STATUS" />
+          <ScalarProperty Name="PRI_ADD" ColumnName="PRI_ADD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_ROL">
+      <EntityTypeMapping TypeName="MESA_SOPORTEModel.TBL_ROL">
+        <MappingFragment StoreEntitySet="TBL_ROL">
+          <ScalarProperty Name="ROL_ID" ColumnName="ROL_ID" />
+          <ScalarProperty Name="ROL_DESCRIPCION" ColumnName="ROL_DESCRIPCION" />
+          <ScalarProperty Name="ROL_ADD" ColumnName="ROL_ADD" />
+          <ScalarProperty Name="ROL_STATUS" ColumnName="ROL_STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_USUARIO">
+      <EntityTypeMapping TypeName="MESA_SOPORTEModel.TBL_USUARIO">
+        <MappingFragment StoreEntitySet="TBL_USUARIO">
+          <ScalarProperty Name="USU_ID" ColumnName="USU_ID" />
+          <ScalarProperty Name="ROL_ID" ColumnName="ROL_ID" />
+          <ScalarProperty Name="PER_ID" ColumnName="PER_ID" />
+          <ScalarProperty Name="USU_LOGIN" ColumnName="USU_LOGIN" />
+          <ScalarProperty Name="USU_PASSWORD" ColumnName="USU_PASSWORD" />
+          <ScalarProperty Name="USU_EMAIL" ColumnName="USU_EMAIL" />
+          <ScalarProperty Name="USU_ADD" ColumnName="USU_ADD" />
+          <ScalarProperty Name="USU_STATUS" ColumnName="USU_STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

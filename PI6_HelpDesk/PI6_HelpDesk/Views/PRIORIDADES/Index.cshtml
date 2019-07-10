@@ -1,0 +1,46 @@
+﻿@model IEnumerable<PI6_HelpDesk.Models.TBL_PRIORIDAD>
+
+@{
+    ViewBag.Title = "Mantenimiento";
+}
+
+<h2>Mantenimiento Tabla PRIORIDADES</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+<table class="table table-bordered table-dark">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PRI_NOMBRE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRI_ADD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TBL_ESTADO.EST_DESCRIPCION)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PRI_NOMBRE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PRI_ADD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TBL_ESTADO.EST_DESCRIPCION)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.PRI_ID }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.PRI_ID }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.PRI_ID })
+            </td>
+        </tr>
+    }
+
+</table>

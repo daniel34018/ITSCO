@@ -1,0 +1,53 @@
+﻿@model IEnumerable<PI6_HelpDesk.Models.TBL_DEPARTAMENTO>
+
+@{
+    ViewBag.Title = "Mantenimiento";
+}
+
+<h2>Mantenimiento Tabla DEPARTAMENTOS</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+<table class="table table-striped table-dark">
+
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DEP_DESCRIPCION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DEP_DIRRECCION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DEP_ADD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TBL_ESTADO.EST_DESCRIPCION)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DEP_DESCRIPCION)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DEP_DIRRECCION)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DEP_ADD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TBL_ESTADO.EST_DESCRIPCION)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.DEP_ID }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.DEP_ID }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.DEP_ID })
+            </td>
+        </tr>
+    }
+
+</table>

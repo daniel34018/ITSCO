@@ -1,0 +1,65 @@
+﻿@model IEnumerable<PI6_HelpDesk.Models.TBL_OBSERVACION>
+
+@{
+    ViewBag.Title = "Mantenimiento";
+}
+
+<h2>Mantenimiento Tabla OBSERVACIONES</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+<table class="table table-bordered table-dark">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OBS_FECHA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OBS_COMENTARIO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OBS_ADD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TBL_ESTADO.EST_DESCRIPCION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TBL_INCIDENTE.INC_NUMTICKET)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TBL_PERSONA.PER_TIPOIDENTIFICACION)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OBS_FECHA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OBS_COMENTARIO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OBS_ADD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TBL_ESTADO.EST_DESCRIPCION)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TBL_INCIDENTE.INC_NUMTICKET)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TBL_PERSONA.PER_TIPOIDENTIFICACION)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.OBS_ID }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.OBS_ID }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.OBS_ID })
+            </td>
+
+        </tr>
+    }
+
+</table>

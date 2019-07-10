@@ -1,0 +1,42 @@
+﻿@model PI6_HelpDesk.Models.TBL_ROL
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>TBL_ROL</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ROL_DESCRIPCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ROL_DESCRIPCION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ROL_ADD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ROL_ADD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TBL_ESTADO.EST_DESCRIPCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TBL_ESTADO.EST_DESCRIPCION)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ROL_ID }) |
+    @Html.ActionLink("REGRESAR", "Index")
+</p>

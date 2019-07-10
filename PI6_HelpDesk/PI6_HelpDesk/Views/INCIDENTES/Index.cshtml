@@ -1,0 +1,83 @@
+﻿@model IEnumerable<PI6_HelpDesk.Models.TBL_INCIDENTE>
+
+@{
+    ViewBag.Title = "Mantenimiento";
+}
+<h2>Mantenimiento Tabla INCIDENTES</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+<table class="table table-bordered table-dark">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.INC_FECHA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.INC_VIGENCIA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.INC_NUMTICKET)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.INC_COMENTARIO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.INC_TIPO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.INC_ADD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TBL_ESTADO.EST_DESCRIPCION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TBL_PRIORIDAD.PRI_NOMBRE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TBL_USUARIO.USU_LOGIN)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.INC_FECHA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.INC_VIGENCIA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.INC_NUMTICKET)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.INC_COMENTARIO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.INC_TIPO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.INC_ADD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TBL_ESTADO.EST_DESCRIPCION)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TBL_PRIORIDAD.PRI_NOMBRE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TBL_USUARIO.USU_LOGIN)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.INC_ID }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.INC_ID }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.INC_ID })
+            </td>
+
+        </tr>
+    }
+
+</table>
+

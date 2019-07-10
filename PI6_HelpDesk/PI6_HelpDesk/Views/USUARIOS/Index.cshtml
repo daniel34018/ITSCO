@@ -1,0 +1,70 @@
+﻿@model IEnumerable<PI6_HelpDesk.Models.TBL_USUARIO>
+
+@{
+    ViewBag.Title = "Mantenimiento";
+}
+
+<h2>Mantenimiento Tabla USUARIOS</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+<table class="table table-bordered table-dark">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.USU_LOGIN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.USU_PASSWORD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.USU_EMAIL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.USU_ADD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TBL_ESTADO.EST_DESCRIPCION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TBL_PERSONA.PER_TIPOIDENTIFICACION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TBL_ROL.ROL_DESCRIPCION)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.USU_LOGIN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.USU_PASSWORD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.USU_EMAIL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.USU_ADD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TBL_ESTADO.EST_DESCRIPCION)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TBL_PERSONA.PER_TIPOIDENTIFICACION)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TBL_ROL.ROL_DESCRIPCION)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.USU_ID }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.USU_ID }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.USU_ID })
+            </td>
+        </tr>
+    }
+
+</table>

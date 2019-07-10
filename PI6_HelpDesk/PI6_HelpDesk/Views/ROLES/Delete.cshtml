@@ -1,0 +1,48 @@
+﻿@model PI6_HelpDesk.Models.TBL_ROL
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Esta seguro de eliminar este registro?</h3>
+<div>
+    <h4>TBL_ROL</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ROL_DESCRIPCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ROL_DESCRIPCION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ROL_ADD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ROL_ADD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TBL_ESTADO.EST_DESCRIPCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TBL_ESTADO.EST_DESCRIPCION)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-actions no-color">
+            <input type="submit" value="Borrar" class="btn btn-default" /> |
+            @Html.ActionLink("REGRESAR", "Index")
+        </div>
+    }
+</div>

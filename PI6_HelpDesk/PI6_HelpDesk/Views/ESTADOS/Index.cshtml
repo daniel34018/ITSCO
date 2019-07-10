@@ -1,0 +1,47 @@
+﻿@model IEnumerable<PI6_HelpDesk.Models.TBL_ESTADO>
+
+@{
+    ViewBag.Title = "Mantenimiento";
+}
+
+<h2>Mantenimiento Tabla ESTADOS</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+<table class="table table-bordered table-dark">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EST_DESCRIPCION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EST_STATUS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EST_ADD)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+       <tr>
+    <td>
+    @Html.DisplayFor(modelItem => item.EST_DESCRIPCION)
+</td>
+         <td>
+             @Html.DisplayFor(modelItem => item.EST_STATUS)
+         </td>
+         <td>
+             @Html.DisplayFor(modelItem => item.EST_ADD)
+         </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.EST_ID }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.EST_ID }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.EST_ID })
+            </td>
+          
+        </tr>
+    }
+
+</table>

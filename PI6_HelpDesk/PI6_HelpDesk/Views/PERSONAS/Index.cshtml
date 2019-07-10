@@ -1,0 +1,90 @@
+﻿@model IEnumerable<PI6_HelpDesk.Models.TBL_PERSONA>
+
+@{
+    ViewBag.Title = "Mantenimiento";
+}
+
+<h2>Mantenimiento Tabla PERSONAS</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+<table class="table table-bordered table-dark">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PER_TIPOIDENTIFICACION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PER_IDENTIFICACION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PER_APELLIDOS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PER_NOMBRES)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PER_DIRECCION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PER_TELEFONO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PER_EMAIL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PER_ADD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TBL_DEPARTAMENTO.DEP_DESCRIPCION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TBL_ESTADO.EST_DESCRIPCION)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PER_TIPOIDENTIFICACION)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PER_IDENTIFICACION)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PER_APELLIDOS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PER_NOMBRES)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PER_DIRECCION)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PER_TELEFONO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PER_EMAIL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PER_ADD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TBL_DEPARTAMENTO.DEP_DESCRIPCION)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TBL_ESTADO.EST_DESCRIPCION)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.PER_ID }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.PER_ID }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.PER_ID })
+            </td>
+        </tr>
+    }
+
+</table>
+</body>
+</html>

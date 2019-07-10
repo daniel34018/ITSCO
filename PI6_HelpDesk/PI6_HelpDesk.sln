@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PI6_HelpDesk", "PI6_HelpDesk\PI6_HelpDesk.csproj", "{84C9F40A-7C02-4FE6-A522-96D4EBE99F5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PI6_HelpDesk.Tests", "PI6_HelpDesk.Tests\PI6_HelpDesk.Tests.csproj", "{01C63CE4-E2A5-4FCA-B0A3-72358793F865}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{84C9F40A-7C02-4FE6-A522-96D4EBE99F5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84C9F40A-7C02-4FE6-A522-96D4EBE99F5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84C9F40A-7C02-4FE6-A522-96D4EBE99F5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84C9F40A-7C02-4FE6-A522-96D4EBE99F5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01C63CE4-E2A5-4FCA-B0A3-72358793F865}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01C63CE4-E2A5-4FCA-B0A3-72358793F865}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01C63CE4-E2A5-4FCA-B0A3-72358793F865}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01C63CE4-E2A5-4FCA-B0A3-72358793F865}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

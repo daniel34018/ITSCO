@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MESA_SOPORTEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TBL_DEPARTAMENTO">
+    <Key>
+      <PropertyRef Name="DEP_ID" />
+    </Key>
+    <Property Name="DEP_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DEP_DESCRIPCION" Type="varchar" MaxLength="100" />
+    <Property Name="DEP_DIRRECCION" Type="varchar" MaxLength="200" />
+    <Property Name="DEP_ADD" Type="datetime" />
+    <Property Name="DEP_STATUS" Type="int" />
+  </EntityType>
+  <EntityType Name="TBL_ESTADO">
+    <Key>
+      <PropertyRef Name="EST_ID" />
+    </Key>
+    <Property Name="EST_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EST_DESCRIPCION" Type="varchar" MaxLength="50" />
+    <Property Name="EST_STATUS" Type="char" MaxLength="1" />
+    <Property Name="EST_ADD" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TBL_INCIDENTE">
+    <Key>
+      <PropertyRef Name="INC_ID" />
+    </Key>
+    <Property Name="INC_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="INC_FECHA" Type="datetime" />
+    <Property Name="INC_VIGENCIA" Type="datetime" />
+    <Property Name="INC_NUMTICKET" Type="varchar" MaxLength="30" />
+    <Property Name="INC_COMENTARIO" Type="varchar" MaxLength="200" />
+    <Property Name="INC_TIPO" Type="varchar" MaxLength="100" />
+    <Property Name="INC_STATUS" Type="int" />
+    <Property Name="INC_PRIORIDAD" Type="int" />
+    <Property Name="INC_USUARIO" Type="int" />
+    <Property Name="INC_ADD" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TBL_OBSERVACION">
+    <Key>
+      <PropertyRef Name="OBS_ID" />
+    </Key>
+    <Property Name="OBS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PER_ID" Type="int" />
+    <Property Name="INC_ID" Type="int" />
+    <Property Name="OBS_FECHA" Type="datetime" />
+    <Property Name="OBS_COMENTARIO" Type="varchar" MaxLength="500" />
+    <Property Name="OBS_STATUS" Type="int" />
+    <Property Name="OBS_ADD" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TBL_PERSONA">
+    <Key>
+      <PropertyRef Name="PER_ID" />
+    </Key>
+    <Property Name="PER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DEP_ID" Type="int" />
+    <Property Name="PER_TIPOIDENTIFICACION" Type="char" MaxLength="1" />
+    <Property Name="PER_IDENTIFICACION" Type="varchar" MaxLength="15" />
+    <Property Name="PER_APELLIDOS" Type="varchar" MaxLength="50" />
+    <Property Name="PER_NOMBRES" Type="varchar" MaxLength="50" />
+    <Property Name="PER_DIRECCION" Type="varchar" MaxLength="100" />
+    <Property Name="PER_TELEFONO" Type="varchar" MaxLength="10" />
+    <Property Name="PER_EMAIL" Type="varchar" MaxLength="100" />
+    <Property Name="PER_ADD" Type="datetime" />
+    <Property Name="PER_STATUS" Type="int" />
+  </EntityType>
+  <EntityType Name="TBL_PRIORIDAD">
+    <Key>
+      <PropertyRef Name="PRI_ID" />
+    </Key>
+    <Property Name="PRI_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PRI_NOMBRE" Type="varchar" MaxLength="50" />
+    <Property Name="PRI_STATUS" Type="int" />
+    <Property Name="PRI_ADD" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TBL_ROL">
+    <Key>
+      <PropertyRef Name="ROL_ID" />
+    </Key>
+    <Property Name="ROL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ROL_DESCRIPCION" Type="varchar" MaxLength="100" />
+    <Property Name="ROL_ADD" Type="datetime" />
+    <Property Name="ROL_STATUS" Type="int" />
+  </EntityType>
+  <EntityType Name="TBL_USUARIO">
+    <Key>
+      <PropertyRef Name="USU_ID" />
+    </Key>
+    <Property Name="USU_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ROL_ID" Type="int" />
+    <Property Name="PER_ID" Type="int" />
+    <Property Name="USU_LOGIN" Type="varchar" MaxLength="100" />
+    <Property Name="USU_PASSWORD" Type="varchar" MaxLength="1000" />
+    <Property Name="USU_EMAIL" Type="varchar" MaxLength="100" />
+    <Property Name="USU_ADD" Type="datetime" />
+    <Property Name="USU_STATUS" Type="int" />
+  </EntityType>
+  <Association Name="FK__TBL_DEPAR__DEP_S__3B75D760">
+    <End Role="TBL_ESTADO" Type="Self.TBL_ESTADO" Multiplicity="0..1" />
+    <End Role="TBL_DEPARTAMENTO" Type="Self.TBL_DEPARTAMENTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_ESTADO">
+        <PropertyRef Name="EST_ID" />
+      </Principal>
+      <Dependent Role="TBL_DEPARTAMENTO">
+        <PropertyRef Name="DEP_STATUS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_INCID__INC_P__628FA481">
+    <End Role="TBL_PRIORIDAD" Type="Self.TBL_PRIORIDAD" Multiplicity="0..1" />
+    <End Role="TBL_INCIDENTE" Type="Self.TBL_INCIDENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_PRIORIDAD">
+        <PropertyRef Name="PRI_ID" />
+      </Principal>
+      <Dependent Role="TBL_INCIDENTE">
+        <PropertyRef Name="INC_PRIORIDAD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_INCID__INC_S__6383C8BA">
+    <End Role="TBL_ESTADO" Type="Self.TBL_ESTADO" Multiplicity="0..1" />
+    <End Role="TBL_INCIDENTE" Type="Self.TBL_INCIDENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_ESTADO">
+        <PropertyRef Name="EST_ID" />
+      </Principal>
+      <Dependent Role="TBL_INCIDENTE">
+        <PropertyRef Name="INC_STATUS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_INCID__INC_U__60A75C0F">
+    <End Role="TBL_USUARIO" Type="Self.TBL_USUARIO" Multiplicity="0..1" />
+    <End Role="TBL_INCIDENTE" Type="Self.TBL_INCIDENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_USUARIO">
+        <PropertyRef Name="USU_ID" />
+      </Principal>
+      <Dependent Role="TBL_INCIDENTE">
+        <PropertyRef Name="INC_USUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_OBSER__INC_I__6B24EA82">
+    <End Role="TBL_INCIDENTE" Type="Self.TBL_INCIDENTE" Multiplicity="0..1" />
+    <End Role="TBL_OBSERVACION" Type="Self.TBL_OBSERVACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_INCIDENTE">
+        <PropertyRef Name="INC_ID" />
+      </Principal>
+      <Dependent Role="TBL_OBSERVACION">
+        <PropertyRef Name="INC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_OBSER__OBS_S__6C190EBB">
+    <End Role="TBL_ESTADO" Type="Self.TBL_ESTADO" Multiplicity="0..1" />
+    <End Role="TBL_OBSERVACION" Type="Self.TBL_OBSERVACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_ESTADO">
+        <PropertyRef Name="EST_ID" />
+      </Principal>
+      <Dependent Role="TBL_OBSERVACION">
+        <PropertyRef Name="OBS_STATUS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_OBSER__PER_I__6A30C649">
+    <End Role="TBL_PERSONA" Type="Self.TBL_PERSONA" Multiplicity="0..1" />
+    <End Role="TBL_OBSERVACION" Type="Self.TBL_OBSERVACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_PERSONA">
+        <PropertyRef Name="PER_ID" />
+      </Principal>
+      <Dependent Role="TBL_OBSERVACION">
+        <PropertyRef Name="PER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_PERSO__DEP_I__46E78A0C">
+    <End Role="TBL_DEPARTAMENTO" Type="Self.TBL_DEPARTAMENTO" Multiplicity="0..1" />
+    <End Role="TBL_PERSONA" Type="Self.TBL_PERSONA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_DEPARTAMENTO">
+        <PropertyRef Name="DEP_ID" />
+      </Principal>
+      <Dependent Role="TBL_PERSONA">
+        <PropertyRef Name="DEP_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_PERSO__PER_S__48CFD27E">
+    <End Role="TBL_ESTADO" Type="Self.TBL_ESTADO" Multiplicity="0..1" />
+    <End Role="TBL_PERSONA" Type="Self.TBL_PERSONA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_ESTADO">
+        <PropertyRef Name="EST_ID" />
+      </Principal>
+      <Dependent Role="TBL_PERSONA">
+        <PropertyRef Name="PER_STATUS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_PRIOR__PRI_S__3E52440B">
+    <End Role="TBL_ESTADO" Type="Self.TBL_ESTADO" Multiplicity="0..1" />
+    <End Role="TBL_PRIORIDAD" Type="Self.TBL_PRIORIDAD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_ESTADO">
+        <PropertyRef Name="EST_ID" />
+      </Principal>
+      <Dependent Role="TBL_PRIORIDAD">
+        <PropertyRef Name="PRI_STATUS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_ROL__ROL_STA__4CA06362">
+    <End Role="TBL_ESTADO" Type="Self.TBL_ESTADO" Multiplicity="0..1" />
+    <End Role="TBL_ROL" Type="Self.TBL_ROL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_ESTADO">
+        <PropertyRef Name="EST_ID" />
+      </Principal>
+      <Dependent Role="TBL_ROL">
+        <PropertyRef Name="ROL_STATUS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_USUAR__PER_I__5070F446">
+    <End Role="TBL_PERSONA" Type="Self.TBL_PERSONA" Multiplicity="0..1" />
+    <End Role="TBL_USUARIO" Type="Self.TBL_USUARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_PERSONA">
+        <PropertyRef Name="PER_ID" />
+      </Principal>
+      <Dependent Role="TBL_USUARIO">
+        <PropertyRef Name="PER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_USUAR__ROL_I__4F7CD00D">
+    <End Role="TBL_ROL" Type="Self.TBL_ROL" Multiplicity="0..1" />
+    <End Role="TBL_USUARIO" Type="Self.TBL_USUARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_ROL">
+        <PropertyRef Name="ROL_ID" />
+      </Principal>
+      <Dependent Role="TBL_USUARIO">
+        <PropertyRef Name="ROL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_USUAR__USU_S__52593CB8">
+    <End Role="TBL_ESTADO" Type="Self.TBL_ESTADO" Multiplicity="0..1" />
+    <End Role="TBL_USUARIO" Type="Self.TBL_USUARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_ESTADO">
+        <PropertyRef Name="EST_ID" />
+      </Principal>
+      <Dependent Role="TBL_USUARIO">
+        <PropertyRef Name="USU_STATUS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MESA_SOPORTEModelStoreContainer">
+    <EntitySet Name="TBL_DEPARTAMENTO" EntityType="Self.TBL_DEPARTAMENTO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_ESTADO" EntityType="Self.TBL_ESTADO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_INCIDENTE" EntityType="Self.TBL_INCIDENTE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_OBSERVACION" EntityType="Self.TBL_OBSERVACION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_PERSONA" EntityType="Self.TBL_PERSONA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_PRIORIDAD" EntityType="Self.TBL_PRIORIDAD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_ROL" EntityType="Self.TBL_ROL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_USUARIO" EntityType="Self.TBL_USUARIO" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__TBL_DEPAR__DEP_S__3B75D760" Association="Self.FK__TBL_DEPAR__DEP_S__3B75D760">
+      <End Role="TBL_ESTADO" EntitySet="TBL_ESTADO" />
+      <End Role="TBL_DEPARTAMENTO" EntitySet="TBL_DEPARTAMENTO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_INCID__INC_P__628FA481" Association="Self.FK__TBL_INCID__INC_P__628FA481">
+      <End Role="TBL_PRIORIDAD" EntitySet="TBL_PRIORIDAD" />
+      <End Role="TBL_INCIDENTE" EntitySet="TBL_INCIDENTE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_INCID__INC_S__6383C8BA" Association="Self.FK__TBL_INCID__INC_S__6383C8BA">
+      <End Role="TBL_ESTADO" EntitySet="TBL_ESTADO" />
+      <End Role="TBL_INCIDENTE" EntitySet="TBL_INCIDENTE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_INCID__INC_U__60A75C0F" Association="Self.FK__TBL_INCID__INC_U__60A75C0F">
+      <End Role="TBL_USUARIO" EntitySet="TBL_USUARIO" />
+      <End Role="TBL_INCIDENTE" EntitySet="TBL_INCIDENTE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_OBSER__INC_I__6B24EA82" Association="Self.FK__TBL_OBSER__INC_I__6B24EA82">
+      <End Role="TBL_INCIDENTE" EntitySet="TBL_INCIDENTE" />
+      <End Role="TBL_OBSERVACION" EntitySet="TBL_OBSERVACION" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_OBSER__OBS_S__6C190EBB" Association="Self.FK__TBL_OBSER__OBS_S__6C190EBB">
+      <End Role="TBL_ESTADO" EntitySet="TBL_ESTADO" />
+      <End Role="TBL_OBSERVACION" EntitySet="TBL_OBSERVACION" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_OBSER__PER_I__6A30C649" Association="Self.FK__TBL_OBSER__PER_I__6A30C649">
+      <End Role="TBL_PERSONA" EntitySet="TBL_PERSONA" />
+      <End Role="TBL_OBSERVACION" EntitySet="TBL_OBSERVACION" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_PERSO__DEP_I__46E78A0C" Association="Self.FK__TBL_PERSO__DEP_I__46E78A0C">
+      <End Role="TBL_DEPARTAMENTO" EntitySet="TBL_DEPARTAMENTO" />
+      <End Role="TBL_PERSONA" EntitySet="TBL_PERSONA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_PERSO__PER_S__48CFD27E" Association="Self.FK__TBL_PERSO__PER_S__48CFD27E">
+      <End Role="TBL_ESTADO" EntitySet="TBL_ESTADO" />
+      <End Role="TBL_PERSONA" EntitySet="TBL_PERSONA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_PRIOR__PRI_S__3E52440B" Association="Self.FK__TBL_PRIOR__PRI_S__3E52440B">
+      <End Role="TBL_ESTADO" EntitySet="TBL_ESTADO" />
+      <End Role="TBL_PRIORIDAD" EntitySet="TBL_PRIORIDAD" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_ROL__ROL_STA__4CA06362" Association="Self.FK__TBL_ROL__ROL_STA__4CA06362">
+      <End Role="TBL_ESTADO" EntitySet="TBL_ESTADO" />
+      <End Role="TBL_ROL" EntitySet="TBL_ROL" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_USUAR__PER_I__5070F446" Association="Self.FK__TBL_USUAR__PER_I__5070F446">
+      <End Role="TBL_PERSONA" EntitySet="TBL_PERSONA" />
+      <End Role="TBL_USUARIO" EntitySet="TBL_USUARIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_USUAR__ROL_I__4F7CD00D" Association="Self.FK__TBL_USUAR__ROL_I__4F7CD00D">
+      <End Role="TBL_ROL" EntitySet="TBL_ROL" />
+      <End Role="TBL_USUARIO" EntitySet="TBL_USUARIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_USUAR__USU_S__52593CB8" Association="Self.FK__TBL_USUAR__USU_S__52593CB8">
+      <End Role="TBL_ESTADO" EntitySet="TBL_ESTADO" />
+      <End Role="TBL_USUARIO" EntitySet="TBL_USUARIO" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
